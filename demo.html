@@ -1,0 +1,48 @@
+<html>
+<title>strFold Demo</title>
+
+<script type="text/javascript">
+
+
+	// "folds" a string so that 12345 --> 15243  and  123456 --> 162534
+
+	function strFold(given) {
+		x=1;
+		newstr = '';
+		odd = false;
+		if ((given.length%2) == 1) odd = true;
+
+		while (x<Math.floor(given.length/2)+2) {
+			newstr += given.substr(x-1,1);
+			newstr += given.substr((x*-1)-0,1);
+			x++;
+		}
+		if (odd) {
+			newstr = newstr.substr(0,newstr.length-1);
+		} else {
+			newstr = newstr.substr(0,newstr.length-2);
+		}
+		return newstr;
+	}	
+
+
+	//eg:
+
+
+	console.log(strFold('0123456789'));
+	console.log(strFold('1234567890'));
+	console.log(strFold('123456789'));
+	console.log(strFold('123'));
+	console.log(strFold('1'));
+	console.log(strFold(''));
+	console.log(strFold('The quick brown fox jumped over the lazy dog.'));
+
+
+</script>
+<body>
+	see browser console
+</body>
+
+</html>
+
+
